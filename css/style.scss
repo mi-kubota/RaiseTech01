@@ -1,0 +1,610 @@
+@charset "UTF-8";
+
+
+$pc: 1200px; // PC
+$tab: 760px; // タブレット
+$sp: 599px;  // スマホ
+$first: 960px; //circle調整
+
+@mixin pc {
+  @media (max-width: ($pc)) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media (max-width: ($tab)) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
+@mixin first { 
+  @media (max-width: ($first)) {
+    @content;
+  }
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  vertical-align: middle;
+  text-align: inherit;
+  font: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+}
+
+/*左上ヘッダー部分*/
+.page-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 7px;
+  margin-left: 20px;
+}
+
+.page-header p {
+  padding-left: 16px;
+  margin-top: 7px;
+  font-size: 1.4rem;
+  font-weight: bold;
+
+  @include pc {
+    display: none;
+  }
+}
+
+.page-header span {
+  font-size: 1.8rem;
+}
+
+/*右上メニュー部分*/
+.main-nav {
+  margin-left: auto;
+  padding: 20px 0px 0px 20px;
+
+  @include pc {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 65px;
+    right: -120%;  
+    z-index: 1500;
+    background-color: #fff;
+    list-style: none;
+  }
+  
+}
+
+.main-nav-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  font-size: 1.5rem;
+  font-weight: bold;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+
+  @include pc {
+    margin: 0px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    display: block;
+    text-align: left;
+    padding-top: 0px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    cursor: pointer;
+    }
+
+}
+
+.main-nav-item-menu {
+  font-size: 1.5rem;
+  height: auto;
+  cursor: pointer;
+  text-decoration: none;
+
+  @include pc {
+   padding-top: 20px;
+   padding-left: 10px;
+   padding-right: 10px;
+   cursor: pointer;
+
+  } 
+}
+
+.main-nav-item-js {
+  padding: 30px 20px 20px 10px;
+
+  &:hover {
+    background-color: #99CCFF;
+  }
+
+  @include pc {
+    padding: 0px;
+    &:hover {
+      background-color: #fff;
+    }
+  } 
+
+}
+
+.main-nav-item-k {
+  padding: 30px 20px 20px 10px;
+
+  &:hover {
+    background-color: #99CCFF;
+  }
+
+  @include pc {
+    padding: 0px;
+    &:hover {
+      background-color: #fff;
+    }
+  } 
+}
+
+.main-nav-item-menu {
+  position: relative;
+}
+
+.main-nav-item-menu a {
+  text-decoration: none;
+  padding-bottom: 28px;
+}
+
+.submenu {
+  list-style: none;
+  display: none;
+  height: auto;
+  position: absolute;
+  z-index: 500;
+  white-space: nowrap;
+  padding-left: 0px;
+  margin-top: 23px;
+  
+
+  @include pc {
+    position: static;
+    margin-top: 0px;
+    background-color: #fff;
+    padding-left: 0px;
+    cursor: pointer;
+   } 
+}
+
+.submenu-item {
+  padding: 20px 20px 20px 10px;
+  background-color: #e9f8fb;
+  width: 100%;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #fff;
+  }
+
+  @include pc {
+    list-style: none;
+    padding: 10px 10px 0px 20px;
+    background-color: #fff;
+ 
+   } 
+}
+
+
+.list-btn a {
+  padding: 25px 20px 27px 20px;
+  background-color: #2498b3;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+
+  @include pc {
+    display: none;
+  }
+}
+
+/* ハンバーガーボタン作成*/
+
+  .p-hamburger {
+    @include pc {position: fixed;
+    top: 5px;
+    right: 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 60px;
+    width: 60px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: #fff;
+    }
+  }
+
+  .p-hamburger::before, .p-hamburger::after {
+    @include pc  {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background:#2498b3;
+    position: absolute;
+    display: block;
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
+    transition: transform 0.2s, -webkit-transform 0.2s;
+    }
+  }
+
+  .p-hamburger::before {
+    @include pc {top: 22px;
+    }
+  }
+
+  .p-hamburger::after {
+    @include pc {top: 38px;
+    }
+  }
+
+  .p-hamburger > span {
+    @include pc {width: 20px;
+    height: 2px;
+    font-size: 0;
+    background:#2498b3;
+    background-size: auto 1px;
+    position: absolute;
+    top: 50%;
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
+    transition: transform 0.2s, -webkit-transform 0.2s;
+
+    }
+  }
+
+  .p-hamburger.open {
+    @include pc {
+      background-color: #2498b3;
+      > span {
+        display: none;
+      }
+    }
+    
+  }
+  .p-hamburger.open::before, .p-hamburger.open::after {
+    @include pc {
+    content: "";
+    /* 上下の線の色を変える */
+    background: #fff;
+    -webkit-transition: .2s;
+    transition: .2s;
+    }
+  }
+  .p-hamburger.open::before {
+    @include pc {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: 28px;
+    }
+  }
+  .p-hamburger.open::after {
+    @include pc { 
+      
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 28px;
+    }
+  }
+
+  body.open {
+    @include pc {
+      position: fixed;
+    }
+  }
+
+  /* ハンバーガーメニュー作成*/
+ 
+  .btn-a::after {
+    @include pc {
+    position: absolute;
+    right: 0px;
+    padding-right: 10px;
+    transform: scale(1.5);
+    content: "＋";
+    /* アイコン */
+    }
+  }
+
+  .btn-b::after {
+    @include pc {content: "−";
+    /* クリック後のアイコン */
+    }
+  }
+
+  .main-nav.open {
+
+    @include pc {
+      right: 0;
+    }
+  
+  }
+
+
+
+/*中央の重ねた画像部分*/
+.home-content {
+  height: 650px;
+  background: url(http://176.34.11.254/wp-content/themes/raisetech2019/./common/img/bg-hero3.png) center center no-repeat fixed;
+  position: relative;
+  background-attachment: fixed;
+  background-size: cover;
+  margin-top: 70px;
+
+  @include tab {
+    background-size:cover;
+    background-position: top;
+    object-fit: cover;
+    background: url(http://176.34.11.254/wp-content/themes/raisetech2019/./common/img/bg-hero3.png) center center repeat fixed;
+    height: 220px;
+  }
+}
+
+.layer1 {
+  height: 650px;
+  background: url(http://176.34.11.254/wp-content/themes/raisetech2019/./common/img/bg-hero2.png) center center no-repeat;
+  z-index: 100;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+
+  @include tab {
+    background-size: cover;
+    background-position: top;
+    object-fit: cover;
+  
+  }
+}
+
+.layer2 {
+  height: 650px;
+  background: url(http://176.34.11.254/wp-content/themes/raisetech2019/./common/img/bg-hero1.png) center center no-repeat;
+  z-index: 200;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-size: cover;
+
+  @include tab {
+    background-size:cover;
+    background-position: top;
+    object-fit: cover;
+  }
+}
+
+/* ページ中央コンテンツ*/
+.home-box {
+  background-color: white;
+  width: 380px;
+  height: 320px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 80px;
+  position: absolute;
+  z-index: 400;
+  box-sizing: border-box;
+
+  @include tab {
+  background-color:transparent;
+  text-align: center;
+  max-width: 100%;
+  width: 100%;
+  margin-top: 200px;
+  }
+
+  img {
+    width: 280px;
+    height: auto;
+    padding-top: 10px;
+
+    @include tab {
+    display: none;
+    }
+  }
+
+  p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    font-weight: bold;
+  }
+
+}
+
+.home-button {
+  color: white;
+  background-color: #2498b3;
+  font-weight: bold;
+  font-size: 1.8rem;
+  text-decoration: none;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 24px 37px;
+
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border-color: #000;
+  border-width: 6px;
+  border-style: solid;
+  background-color: #fff;
+  padding-top: 50px;
+  padding-left: 50px;
+
+  @include first {
+  width: 170px;
+  height: 170px;
+  }
+
+  @include tab {
+    margin:auto;
+  }
+
+  p br {
+
+    @include sp {
+      display: none;
+     
+    }
+  }
+
+}
+
+.circle i {
+  display: inline-block;
+  font-size: 100px;
+  color: black;
+  margin-top: 30px;
+  margin-right: 50px;
+
+  @include first {
+    font-size: 85px;
+  }
+}
+
+/* ページ下部*/
+.black-space {
+  background-color: #000;
+  padding-bottom: 50px;
+}
+
+.big-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: -180px;
+
+  @include tab {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-top: 10%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 200px;
+  }
+
+}
+
+.big-container h2 {
+  color: #fff;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+.big-container p {
+  color: #fff;
+  text-align: left;
+  font-size: 1.7rem;
+  font-weight: bold;
+  padding-left: 25px;
+
+  @include first {
+    font-size: 1.4rem;
+  }
+
+  @include tab {
+    br {
+     display: none;
+     font-size: 1.3rem;
+    }
+  }
+
+}
+
+.container {
+  margin: 0px 45px;
+  z-index: 1000;
+
+ 
+}
+
+
+
+/*# sourceMappingURL=style.css.map */

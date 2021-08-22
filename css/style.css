@@ -375,7 +375,7 @@ header {
 
 @media (max-width: 760px) {
   .home-content {
-    background-size: contain;
+    background-size: cover;
     background-position: top;
     -o-object-fit: cover;
        object-fit: cover;
@@ -404,7 +404,7 @@ header {
 
 @media (max-width: 760px) {
   .layer1 {
-    background-size: contain;
+    background-size: cover;
     background-position: top;
     -o-object-fit: cover;
        object-fit: cover;
@@ -423,7 +423,7 @@ header {
 
 @media (max-width: 760px) {
   .layer2 {
-    background-size: contain;
+    background-size: cover;
     background-position: top;
     -o-object-fit: cover;
        object-fit: cover;
@@ -445,9 +445,15 @@ header {
 
 @media (max-width: 760px) {
   .home-box {
-    padding-top: 25%;
+    padding-top: 20%;
     background-color: transparent;
     position: static;
+  }
+}
+
+@media (max-width: 599px) {
+  .home-box {
+    padding-top: 25%;
   }
 }
 
@@ -498,6 +504,18 @@ header {
   .circle {
     width: 170px;
     height: 170px;
+  }
+}
+
+@media (max-width: 599px) {
+  .circle {
+    margin-left: 130px;
+  }
+}
+
+@media (max-width: 599px) {
+  .circle p br {
+    display: none;
   }
 }
 
@@ -570,6 +588,7 @@ header {
 @media (max-width: 599px) {
   .big-container p br {
     display: none;
+    font-size: 1.3rem;
   }
 }
 
